@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=st
-Comment=st is a simple virtual terminal emulator for X which sucks less
-Exec=st
+Name=xst
+Comment=xst is a simple virtual terminal emulator for X which sucks less
+Exec=xst
 Terminal=false
 Type=Application
 Icon=gnome-xterm
