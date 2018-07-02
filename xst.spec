@@ -1,6 +1,6 @@
-Name:             st
+Name:             xst
 Version:          0.7.1
-Release:          4%{?dist}_xst
+Release:          git
 Summary:          A simple terminal implementation for X
 %global           _stsourcedir %{_usrsrc}/%{name}-user-%{version}-%{release}
 License:          MIT
@@ -75,26 +75,26 @@ mkdir -p %{buildroot}%{_stsourcedir}
 touch %{buildroot}%{_bindir}/%{name}
 desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 
-%pre
-[ -L %{_bindir}/%{name} ] || rm -f %{_bindir}/%{name}
-
-%post
-%{_sbindir}/update-alternatives --install %{_bindir}/%{name} %{name} \
-    %{_bindir}/%{name}-fedora 10
-
-%postun
-if [ $1 -eq 0 ] ; then
-    %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/%{name}-fedora
-fi
-
-%post user
-%{_sbindir}/update-alternatives --install %{_bindir}/%{name} %{name} \
-    %{_bindir}/%{name}-user 20
-
-%postun user
-if [ $1 -eq 0 ] ; then
-    %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/%{name}-user
-fi
+# %pre
+# [ -L %{_bindir}/%{name} ] || rm -f %{_bindir}/%{name}
+# 
+# %post
+# %{_sbindir}/update-alternatives --install %{_bindir}/%{name} %{name} \
+#     %{_bindir}/%{name}-fedora 10
+# 
+# %postun
+# if [ $1 -eq 0 ] ; then
+#     %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/%{name}-fedora
+# fi
+# 
+# %post user
+# %{_sbindir}/update-alternatives --install %{_bindir}/%{name} %{name} \
+#     %{_bindir}/%{name}-user 20
+# 
+# %postun user
+# if [ $1 -eq 0 ] ; then
+#     %{_sbindir}/update-alternatives --remove %{name} %{_bindir}/%{name}-user
+# fi
 
 %files
 #%license LICENSE
