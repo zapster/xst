@@ -4,5 +4,5 @@ Comment=xst is a simple virtual terminal emulator for X which sucks less
 Exec=xst
 Terminal=false
 Type=Application
-Icon=gnome-xterm
+Icon=xst
 Categories=System;TerminalEmulator;
